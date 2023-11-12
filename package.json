@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "scarydoors.github.io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,11 +7,24 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint 'src/**/*.{js,astro}'",
+    "format": "prettier --write . --plugin prettier-plugin-astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
+    "@astrojs/tailwind": "^5.0.2",
     "astro": "^3.5.2",
+    "astro-heroicons": "^0.3.0",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-astro": "^0.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier-plugin-astro": "^0.12.1"
   }
 }
