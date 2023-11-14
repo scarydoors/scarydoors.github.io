@@ -5,7 +5,7 @@ interface Props {
   href: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body } = Astro.props as Props;
 ---
 
 <li class="link-card">

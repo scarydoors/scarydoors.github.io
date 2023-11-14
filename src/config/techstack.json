@@ -1,0 +1,37 @@
+[
+  {
+    "name": "React",
+    "icon": "react-logo",
+    "backgroundClass": "bg-white",
+    "textClass": "text-[#23272f]",
+    "shadowClass": "shadow-gray-300"
+  },
+  {
+    "name": "Vue",
+    "icon": "vue-logo",
+    "backgroundClass": "bg-[#359368]",
+    "textClass": "text-[#D1EEE1]",
+    "shadowClass": "shadow-[#286D4E]"
+  },
+  {
+    "name": "tailwindcss",
+    "icon": "tailwind-logo",
+    "backgroundClass": "bg-white",
+    "textClass": "text-black",
+    "shadowClass": "shadow-gray-300"
+  },
+  {
+    "name": "Elixir",
+    "icon": "elixir-logo",
+    "backgroundClass": "bg-[#9D6DBE]",
+    "textClass": "text-[#FBF9FC]",
+    "shadowClass": "shadow-[#673B85]"
+  },
+  {
+    "name": "Phoenix",
+    "icon": "phoenix-logo",
+    "backgroundClass": "bg-[#ff6f61]",
+    "textClass": "text-white",
+    "shadowClass": "shadow-[#FF4533]"
+  }
+]

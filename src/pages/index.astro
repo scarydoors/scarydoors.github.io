@@ -1,15 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "@/components/Nav.astro";
+import TechStack from "@/components/TechStack.astro";
 import MapPin from "astro-heroicons/outline/MapPin.astro";
 import ArrowDown from "astro-heroicons/outline/ArrowDown.astro";
 import "@/styles/base.css";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="max-w-xl mx-auto pt-16">
+  <main class="w-screen h-screen pt-16 snap-y snap-mandatory overflow-y-scroll">
     <div
-      class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center relative"
+      class="min-h-[calc(100dvh)] flex flex-col items-center justify-center snap-start relative"
     >
       <div class="sm:w-[40rem] w-[20rem]">
         <div class="text-yellow-100 text-xl font-bold pb-2">
@@ -37,7 +38,7 @@ import "@/styles/base.css";
           <div>based in the UK</div>
         </div>
       </div>
-      <div class="absolute bottom-0 mx-auto pb-10 flex flex-col items-center">
+      <div class="absolute bottom-0 mx-auto flex flex-col items-center pb-12">
         <div
           id="scatter-text"
           class="font-title font-black text-yellow-600 pb-2"
@@ -50,6 +51,12 @@ import "@/styles/base.css";
         />
       </div>
     </div>
+    <section class="snap-start h-screen pt-16 flex justify-center weird px-4">
+      <div class="max-w-4xl flex-1 prose pt-16">
+        <h1 class="font-title text-yellow font-xl">the techstack.</h1>
+        <TechStack />
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -103,10 +110,9 @@ import "@/styles/base.css";
           targets: "#scatter-text .letter",
           opacity: 1,
           rotate: () => {
-            return anime.random(-45, 45);
+            return anime.random(-45, 45) + 180;
           },
           duration: 400,
-          delay: anime.stagger(200),
           easing: "spring",
         },
         "+=500",
@@ -117,7 +123,7 @@ import "@/styles/base.css";
           translateX: 0,
           translateY: 0,
           rotate: 0,
-          duration: 100,
+          duration: 300,
           easing: "spring",
           delay: anime.stagger(70),
         },

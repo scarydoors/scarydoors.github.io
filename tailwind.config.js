@@ -2,7 +2,7 @@ import plugin from "tailwindcss/plugin";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,json}"],
   theme: {
     extend: {
       fontFamily: {
@@ -23,6 +23,20 @@ module.exports = {
           800: "#755C00",
           900: "#473600",
           950: "#2E2300",
+        },
+        cinnamon: {
+          DEFAULT: "#755000",
+          50: "#FFF3E3",
+          100: "#FFE8C7",
+          200: "#FFD38F",
+          300: "#FFC056",
+          400: "#FFAE1E",
+          500: "#E59600",
+          600: "#AD7400",
+          700: "#755000",
+          800: "#563C00",
+          900: "#382800",
+          950: "#291D00",
         },
       },
       keyframes: {

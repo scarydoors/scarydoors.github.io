@@ -1,0 +1,34 @@
+---
+import Svg from "@/components/Svg.astro";
+import TechStackCard from "@/components/TechStack/TechStackCard.astro";
+import techstack from "@/config/techstack.json";
+
+interface Props {
+  class?: string[];
+}
+
+const { class: className, ...rest } = Astro.props as Props;
+---
+
+<div
+  id="techstack-container"
+  class:list={[
+    "bg-cinnamon-900 rounded-lg shadow-[inset_0_0_0_2px_rgba(255,255,255,0.1)] py-4 px-8 flex flex-wrap gap-2",
+    className,
+  ]}
+  {...rest}
+>
+  {techstack.map((info) => <TechStackCard {...info} />)}
+</div>
+
+<script>
+  import anime from "animejs";
+  let animation = anime({
+    targets: "#techstack-container",
+    opacity: [0, 1],
+    transformY: [10, 0],
+    duration: 300,
+    delay: 500,
+    autoplay: false,
+  });
+</script>

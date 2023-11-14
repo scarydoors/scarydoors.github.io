@@ -1,0 +1,26 @@
+---
+import { parse } from "node-html-parser";
+
+export interface Props {
+  name: string;
+}
+
+async function getSVG(name: string) {
+  const filepath = `/src/assets/svg/${name}.svg?raw`;
+
+  const contents = (await import(/* @vite-ignore */ filepath)).default;
+
+  const root = parse(contents);
+  const svg = root.querySelector("svg");
+
+  const { attributes, innerHTML } = svg;
+  return { attributes, innerHTML };
+}
+
+const { name, ...attributes } = Astro.props as Props;
+const { attributes: baseAttributes, innerHTML } = await getSVG(name);
+
+const svgAttributes = { ...baseAttributes, ...attributes };
+---
+
+<svg {...svgAttributes} set:html={innerHTML} />

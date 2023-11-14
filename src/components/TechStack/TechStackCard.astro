@@ -1,0 +1,28 @@
+---
+import Svg from "@/components/Svg.astro";
+interface Props {
+  name: string;
+  icon: string;
+  backgroundClass: string;
+  textClass: string;
+  shadowClass: string;
+}
+
+const { name, icon, backgroundClass, textClass, shadowClass } =
+  Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "w-28 pt-6 pb-4 px-3 flex flex-col justify-between text-center rounded-lg shadow-[0_10px_0_0] mb-[10px] border-t border-white/10",
+    backgroundClass,
+    shadowClass,
+  ]}
+>
+  <div class="px-3">
+    <Svg name={icon} class="h-12 mx-auto" />
+  </div>
+  <div class:list={["font-medium pt-4", textClass]}>
+    {name}
+  </div>
+</div>
