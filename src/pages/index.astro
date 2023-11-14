@@ -30,7 +30,7 @@ import "@/styles/base.css";
         </div>
         <span> </span>
         <div
-          id="afterTypewriter"
+          id="after-typewriter"
           class="flex items-center text-yellow-200 font-title font-bold pt-4 sm:text-2xl text-xl opacity-0 animation-delay-200"
         >
           <MapPin class="w-8 h-8 pr-1" />
@@ -38,10 +38,16 @@ import "@/styles/base.css";
         </div>
       </div>
       <div class="absolute bottom-0 mx-auto pb-10 flex flex-col items-center">
-        <div class="font-title font-black text-yellow-600 pb-2">
+        <div
+          id="scatter-text"
+          class="font-title font-black text-yellow-600 pb-2"
+        >
           want to see more?
         </div>
-        <ArrowDown class="w-7 h-7 text-yellow-600 animate-bounce" />
+        <ArrowDown
+          id="arrow-down"
+          class="w-7 h-7 text-yellow-600 animate-bounce opacity-0"
+        />
       </div>
     </div>
   </main>
@@ -58,9 +64,10 @@ import "@/styles/base.css";
     if (idx == text.length) {
       setTimeout(() => {
         document
-          .getElementById("afterTypewriter")
+          .getElementById("after-typewriter")
           ?.classList.add("animate-fade-in");
       });
+      animateScatter();
       return;
     }
     typewriter.innerHTML += text[idx];
@@ -71,4 +78,58 @@ import "@/styles/base.css";
     setTimeout(typewrite, 200);
   }
   setTimeout(typewrite, 1100);
+
+  import anime from "animejs/lib/anime.es.js";
+  let scatterTextWrapper = document.getElementById("scatter-text");
+  scatterTextWrapper.innerHTML = scatterTextWrapper.textContent.replace(
+    /\S/g,
+    "<span class='letter inline-block opacity-0'>$&</span>",
+  );
+
+  anime.set("#scatter-text .letter", {
+    translateX: () => {
+      return anime.random(-100, 100);
+    },
+    translateY: () => {
+      return anime.random(-100, 10);
+    },
+  });
+
+  async function animateScatter() {
+    anime
+      .timeline()
+      .add(
+        {
+          targets: "#scatter-text .letter",
+          opacity: 1,
+          rotate: () => {
+            return anime.random(-45, 45);
+          },
+          duration: 400,
+          delay: anime.stagger(200),
+          easing: "spring",
+        },
+        "+=500",
+      )
+      .add(
+        {
+          targets: "#scatter-text .letter",
+          translateX: 0,
+          translateY: 0,
+          rotate: 0,
+          duration: 100,
+          easing: "spring",
+          delay: anime.stagger(70),
+        },
+        "-=400",
+      );
+
+    anime({
+      targets: "#arrow-down",
+      opacity: [0, 1],
+      easing: "easeOutExpo",
+      duration: 300,
+      delay: 500,
+    });
+  }
 </script>
