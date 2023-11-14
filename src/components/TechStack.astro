@@ -20,15 +20,3 @@ const { class: className, ...rest } = Astro.props as Props;
 >
   {techstack.map((info) => <TechStackCard {...info} />)}
 </div>
-
-<script>
-  import anime from "animejs";
-  let animation = anime({
-    targets: "#techstack-container",
-    opacity: [0, 1],
-    transformY: [10, 0],
-    duration: 300,
-    delay: 500,
-    autoplay: false,
-  });
-</script>
