@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "@/components/Nav.astro";
 import TechStack from "@/components/TechStack.astro";
 import MapPin from "astro-heroicons/outline/MapPin.astro";
 import ArrowDown from "astro-heroicons/outline/ArrowDown.astro";
@@ -88,11 +87,12 @@ import "@/styles/base.css";
 
   import anime from "animejs/lib/anime.es.js";
   let scatterTextWrapper = document.getElementById("scatter-text");
-  scatterTextWrapper.innerHTML = scatterTextWrapper.textContent.replace(
-    /\S/g,
-    "<span class='letter inline-block opacity-0'>$&</span>",
-  );
-
+  if (scatterTextWrapper != null && scatterTextWrapper?.textContent) {
+    scatterTextWrapper.innerHTML = scatterTextWrapper.textContent.replace(
+      /\S/g,
+      "<span class='letter inline-block opacity-0'>$&</span>",
+    );
+  }
   anime.set("#scatter-text .letter", {
     translateX: () => {
       return anime.random(-100, 100);

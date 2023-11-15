@@ -1,18 +1,28 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { parse } from "node-html-parser";
 
-export interface Props {
+export interface Props extends HTMLAttributes<"svg"> {
   name: string;
 }
 
 async function getSVG(name: string) {
-  const filepath = `/src/assets/svg/${name}.svg?raw`;
+  const filepath = `/src/assets/svg/${name}.svg`;
+  const files = import.meta.glob<string>('/src/assets/svg/**/*.svg', {
+    as: 'raw',
+    eager: true
+  });
 
-  const contents = (await import(/* @vite-ignore */ filepath)).default;
+  if (!(filepath in files)) {
+    throw new Error(`${filepath} not found`);
+  }
 
-  const root = parse(contents);
+  const root = parse(files[filepath]);
   const svg = root.querySelector("svg");
 
+  if (svg === null) {
+    throw new Error(`svg ${name} is null`);
+  }
   const { attributes, innerHTML } = svg;
   return { attributes, innerHTML };
 }
