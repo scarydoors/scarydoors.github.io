@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Link from 'phosphor-astro/LinkBold.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import PostLink from '../components/PostLink.astro';
 ---
 
 <!doctype html>
@@ -12,119 +13,43 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
     <body class="flex justify-center text-beige-900 bg-beige-50 font-inter">
-        <div class="w-full max-w-2xl mt-16">
+        <div class="w-full max-w-3xl mt-16 mx-8">
             <h1 class="font-instrument text-5xl mb-4">Alan Strauhs</h1>
             <nav class="mb-8">
                 <ul class="flex font-inter text-beige-600 gap-2">
-                    <li class="font-medium text-beige-900">index</li>
-                    <li class="mx-1">&bull;</li>
-                    <li>posts</li>
-                    <li class="mx-1">&bull;</li>
-                    <li>projects</li>
+                    <li class="font-medium text-beige-700 bg-beige-200 hover:bg-beige-100">index</li>
+                    <li class="hover:bg-beige-200 bg-beige-100">posts</li>
+                    <li class="bg-beige-100 px-2">projects</li>
                 </ul>
             </nav>
-            <!--
-            <p class="mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-            </p>
-            <div class="my-8 flex justify-center flex-row">
-                <figure>
-                    <img class="w-72" src="https://preview.redd.it/mint-chocolate-charybdis-nano-v0-qyvhj03xe8w91.jpg?width=1080&crop=smart&auto=webp&s=7b10ee41ddbf12014cb20a9cd5132bfd7dfc54db"/>
-                    <figcaption class="text-center text-sm p-2 text-beige-600">
-                        Charybdis split keyboard (daily driver)
-                    </figcaption>
-                </figure>
-            </div>
-            <h2 class="text-xl leading-3 mb-4 mt-8 font-bold font-beige-700">
-                Recent posts
-            </h2>
--->
             <ul>
-                <li>
-                    <a href="/blog/post-1" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-                        <div class="flex gap-2 items-center">
-                            <time class="font-medium font-mono" datetime="2025-01-12">2025-01-12</time>
-                            <span class="text-beige-800">Exploring Minimalist Design</span>
-                        </div>
-                        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-                            #design
-                        </div>
-                    </a>
-                </li>
-<li>
-    <a href="/blog/post-1" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-01-04">2025-01-04</time>
-            <span class="text-beige-800">A Journey Into Static Rendering</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #ssg
-        </div>
-    </a>
-</li>
-
-<li>
-    <a href="/blog/post-2" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-02-11">2025-02-11</time>
-            <span class="text-beige-800">Optimizing Runtime Performance</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #performance
-        </div>
-    </a>
-</li>
-
-<li>
-    <a href="/blog/post-3" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-03-06">2025-03-06</time>
-            <span class="text-beige-800">Patterns for Event-Driven Systems</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #events
-        </div>
-    </a>
-</li>
-
-<li>
-    <a href="/blog/post-4" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-04-18">2025-04-18</time>
-            <span class="text-beige-800">Modern Techniques for Data Fetching</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #data
-        </div>
-    </a>
-</li>
-
-<li>
-    <a href="/blog/post-5" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-06-02">2025-06-02</time>
-            <span class="text-beige-800">When to Reach for a Message Queue</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #queues
-        </div>
-    </a>
-</li>
-
-<li>
-    <a href="/blog/post-6" class="text-beige-700 w-full inline-flex justify-between gap-2 hover:bg-beige-200 py-1">
-        <div class="flex gap-2 items-center">
-            <time class="font-medium font-mono" datetime="2025-07-19">2025-07-19</time>
-            <span class="text-beige-800">Designing APIs for Long-Term Stability</span>
-        </div>
-        <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center">
-            #api
-        </div>
-    </a>
-</li>
+                <PostLink
+                    href="/blog/post-1"
+                    title="Implementing buffered inserts for ClickHouse in Go"
+                    date={new Date()}
+                    tags={["#clickhouse", "#data"]}
+                />
+            
+                <PostLink
+                    href="/blog/post-1"
+                    title="Implementing buffered inserts for ClickHouse in Go"
+                    date={new Date()}
+                    tags={["#clickhouse", "#data"]}
+                />
+            
+                <PostLink
+                    href="/blog/post-1"
+                    title="Implementing buffered inserts for ClickHouse in Go"
+                    date={new Date()}
+                    tags={["#clickhouse", "#data"]}
+                />
+            
+                <PostLink
+                    href="/blog/post-1"
+                    title="Implementing buffered inserts for ClickHouse in Go"
+                    date={new Date()}
+                    tags={["#clickhouse", "#data"]}
+                />
             </ul>
         </div>
     </body>

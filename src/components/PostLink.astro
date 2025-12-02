@@ -1,0 +1,27 @@
+---
+interface Props {
+    title: string;
+    date: Date;
+    href: string;
+    tags?: string[];
+}
+
+const { title, date, href, tags } = Astro.props;
+---
+<li>
+    <a href={href} class="text-beige-700 w-full inline-flex flex-col gap-2 hover:bg-beige-200 py-1 my-1">
+        <div class="flex gap-4 items-center justify-between">
+            <time class="font-medium" datetime={date.toISOString()}>
+                {date.toISOString().split("T")[0]}
+            </time>
+            <div class="flex gap-1 items-center">
+                {tags?.map(tag => (
+                <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center h-6">
+                    {tag}
+                </div>
+                ))}
+            </div>
+        </div>
+        <span class="text-beige-800 text-lg">{title}</span>
+    </a>
+</li>
