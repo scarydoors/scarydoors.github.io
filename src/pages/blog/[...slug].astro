@@ -1,4 +1,12 @@
 ---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Link from 'phosphor-astro/LinkBold.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import PostLink from '../../components/PostLink.astro';
+import NavBar from '../../components/NavBar.astro';
+import NavBarItem from '../../components/NavBarItem.astro';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
@@ -15,6 +23,22 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+    <body class="text-beige-900 bg-beige-50 font-inter">
+        <main class="w-full max-w-4xl mt-16 mx-auto px-8">
+            <h1 class="font-instrument text-5xl mb-4">Alan Strauhs</h1>
+            <NavBar>
+                <NavBarItem href="/">index</NavBarItem>
+                <NavBarItem href="/projects">projects</NavBarItem>
+                <NavBarItem href="/about">about</NavBarItem>
+            </NavBar>
+            <h1 class="font-instrument text-6xl mt-12 mb-4">{post.data.title}</h1>
+            <div class="prose">
+                <Content />
+            </div>
+        </main>
+    </body>
+</html>

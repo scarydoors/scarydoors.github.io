@@ -10,17 +10,21 @@
     --font-instrument: "Instrument Serif", serif;
     --font-inter: "Inter Tight", sans-serif;
     --font-mono: "Geist Mono", monospace;
---color-beige-50: oklch(85.245% 0.01825 59.44);
---color-beige-100: oklch(82.254% 0.02195 60.684);
---color-beige-200: oklch(75.771% 0.03047 57.236);
---color-beige-300: oklch(69.413% 0.03854 56.211);
---color-beige-400: oklch(62.925% 0.04793 56.695);
---color-beige-500: oklch(56.017% 0.04639 57.141);
---color-beige-600: oklch(45.942% 0.03657 57.196);
---color-beige-700: oklch(35.277% 0.02605 57.291);
---color-beige-800: oklch(23.722% 0.01439 57.5);
---color-beige-900: oklch(8.3334% 0.00723 107.87);
---color-beige-950: oklch(0% 0 none);
+    --color-beige-50: oklch(85.245% 0.01825 59.44);
+    --color-beige-100: oklch(82.254% 0.02195 60.684);
+    --color-beige-200: oklch(75.771% 0.03047 57.236);
+    --color-beige-300: oklch(69.413% 0.03854 56.211);
+    --color-beige-400: oklch(62.925% 0.04793 56.695);
+    --color-beige-500: oklch(56.017% 0.04639 57.141);
+    --color-beige-600: oklch(45.942% 0.03657 57.196);
+    --color-beige-700: oklch(35.277% 0.02605 57.291);
+    --color-beige-800: oklch(23.722% 0.01439 57.5);
+    --color-beige-900: oklch(8.3334% 0.00723 107.87);
+    --color-beige-950: oklch(0% 0 none);
 }
 
-
+@layer components {
+    .prose {
+        @apply space-y-[1.5em];
+    }
+}

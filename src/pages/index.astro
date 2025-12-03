@@ -15,7 +15,7 @@ import NavBarItem from '../components/NavBarItem.astro';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
     <body class="text-beige-900 bg-beige-50 font-inter">
-        <section class="w-full max-w-3xl mt-16 mx-auto px-8">
+        <main class="w-full max-w-4xl mt-16 mx-auto px-8">
             <h1 class="font-instrument text-5xl mb-4">Alan Strauhs</h1>
             <NavBar>
                 <NavBarItem href="/">index</NavBarItem>
@@ -24,33 +24,12 @@ import NavBarItem from '../components/NavBarItem.astro';
             </NavBar>
             <ul>
                 <PostLink
-                    href="/blog/post-1"
-                    title="Implementing buffered inserts for ClickHouse in Go"
-                    date={new Date()}
-                    tags={["#clickhouse", "#data"]}
-                />
-            
-                <PostLink
-                    href="/blog/post-1"
-                    title="Implementing buffered inserts for ClickHouse in Go"
-                    date={new Date()}
-                    tags={["#clickhouse", "#data"]}
-                />
-            
-                <PostLink
-                    href="/blog/post-1"
-                    title="Implementing buffered inserts for ClickHouse in Go"
-                    date={new Date()}
-                    tags={["#clickhouse", "#data"]}
-                />
-            
-                <PostLink
-                    href="/blog/post-1"
+                    href="/blog/first-post"
                     title="Implementing buffered inserts for ClickHouse in Go"
                     date={new Date()}
                     tags={["#clickhouse", "#data"]}
                 />
             </ul>
-        </section>
+        </main>
     </body>
 </html>
