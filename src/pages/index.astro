@@ -5,6 +5,8 @@ import Header from '../components/Header.astro';
 import Link from 'phosphor-astro/LinkBold.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import PostLink from '../components/PostLink.astro';
+import NavBar from '../components/NavBar.astro';
+import NavBarItem from '../components/NavBarItem.astro';
 ---
 
 <!doctype html>
@@ -12,16 +14,14 @@ import PostLink from '../components/PostLink.astro';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-    <body class="flex justify-center text-beige-900 bg-beige-50 font-inter">
-        <div class="w-full max-w-3xl mt-16 mx-8">
+    <body class="text-beige-900 bg-beige-50 font-inter">
+        <section class="w-full max-w-3xl mt-16 mx-auto px-8">
             <h1 class="font-instrument text-5xl mb-4">Alan Strauhs</h1>
-            <nav class="mb-8">
-                <ul class="flex font-inter text-beige-600 gap-2">
-                    <li class="font-medium text-beige-700 bg-beige-200 hover:bg-beige-100">index</li>
-                    <li class="hover:bg-beige-200 bg-beige-100">posts</li>
-                    <li class="bg-beige-100 px-2">projects</li>
-                </ul>
-            </nav>
+            <NavBar>
+                <NavBarItem href="/">index</NavBarItem>
+                <NavBarItem href="/projects">projects</NavBarItem>
+                <NavBarItem href="/about">about</NavBarItem>
+            </NavBar>
             <ul>
                 <PostLink
                     href="/blog/post-1"
@@ -51,6 +51,6 @@ import PostLink from '../components/PostLink.astro';
                     tags={["#clickhouse", "#data"]}
                 />
             </ul>
-        </div>
+        </section>
     </body>
 </html>
