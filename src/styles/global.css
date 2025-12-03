@@ -37,3 +37,8 @@
         @apply text-2xl font-medium my-[0.67em];
     }
 }
+
+@utility crisp-edges {
+    image-rendering: crisp-edges;
+}
+
