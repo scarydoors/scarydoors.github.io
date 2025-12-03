@@ -9,6 +9,7 @@
 @theme {
     --font-instrument: "Instrument Serif", serif;
     --font-inter: "Inter Tight", sans-serif;
+    --font-inter-not-tight: "Inter";
     --font-mono: "Geist Mono", monospace;
     --color-beige-50: oklch(85.245% 0.01825 59.44);
     --color-beige-100: oklch(82.254% 0.02195 60.684);
@@ -25,6 +26,14 @@
 
 @layer components {
     .prose {
-        @apply space-y-[1.5em];
+        @apply font-inter-not-tight;
+    }
+
+    .prose p + p {
+        @apply my-[1.5em];
+    }
+
+    .prose h1 {
+        @apply text-2xl font-medium my-[0.67em];
     }
 }

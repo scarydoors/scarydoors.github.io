@@ -7,4 +7,4 @@ const { href } = Astro.props
 
 const currentUrl = Astro.url.pathname;
 ---
-<li class:list={["px-2", currentUrl == href ? "bg-beige-200 font-medium text-beige-700" : "bg-beige-100 hover:bg-beige-200"]}><a {href}><slot/></a></li>
+<li class:list={["px-2 text-beige-700", currentUrl == href ? "bg-beige-200 font-medium" : "bg-beige-100 hover:bg-beige-200"]}><a {href}><slot/></a></li>

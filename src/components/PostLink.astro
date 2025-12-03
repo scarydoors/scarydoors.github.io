@@ -9,14 +9,14 @@ interface Props {
 const { title, date, href, tags } = Astro.props;
 ---
 <li>
-    <a href={href} class="text-beige-700 w-full inline-flex flex-col gap-2 hover:bg-beige-200 py-1 my-1">
+    <a href={href} class="w-full inline-flex flex-col gap-2 hover:bg-beige-200 py-1 my-1">
         <div class="flex gap-4 items-center justify-between">
-            <time class="font-medium" datetime={date.toISOString()}>
+            <time class="font-medium text-beige-700" datetime={date.toISOString()}>
                 {date.toISOString().split("T")[0]}
             </time>
             <div class="flex gap-1 items-center">
                 {tags?.map(tag => (
-                <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center h-6">
+                <div class="border border-beige-700 bg-beige-100 rounded-sm font-mono text-xs px-0.5 flex items-center h-6 text-beige-700">
                     {tag}
                 </div>
                 ))}
