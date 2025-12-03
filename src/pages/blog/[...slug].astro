@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -9,13 +10,14 @@ import NavBar from '../../components/NavBar.astro';
 import NavBarItem from '../../components/NavBarItem.astro';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import pipeline from '../../assets/pipeline bigger.gif';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+    const posts = await getCollection('blog');
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: post,
+    }));
 }
 type Props = CollectionEntry<'blog'>;
 
@@ -24,9 +26,9 @@ const { Content } = await render(post);
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
     <body class="text-beige-900 bg-beige-50 font-inter">
         <main class="w-full max-w-4xl mt-8 mx-auto px-4">
             <h1 class="font-instrument text-5xl mb-4">Alan Strauhs</h1>
@@ -35,7 +37,7 @@ const { Content } = await render(post);
                 <NavBarItem href="/projects">projects</NavBarItem>
                 <NavBarItem href="/about">about</NavBarItem>
             </NavBar>
-            <div class="mt-8 mb-6">
+            <div class="mt-8 mb-8">
                 <time class="font-medium text-beige-700" datetime={post.data.pubDate.toISOString()}>
                     {post.data.pubDate.toISOString().split("T")[0]}
                 </time>
@@ -50,6 +52,12 @@ const { Content } = await render(post);
                 </div>
             </div>
             <div class="prose">
+                <figure class="flex flex-col w-full items-center gap-2 mb-12">
+                    <Image src={pipeline} alt="pipeline"/>
+                    <figcaption class="text-sm">
+                        This is basically a buffered insert.
+                    </figcaption>
+                </figure>
                 <Content />
             </div>
         </main>
